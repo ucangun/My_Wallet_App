@@ -1,0 +1,21 @@
+:root {
+  /* Lacivert Arka Plan */
+  --primary-blue: #001f3f;
+  --light-blue: #004080;
+  --dark-blue: #000a12;
+
+  /* Gelirler (Yeşil) */
+  --primary-green: #2ecc40;
+  --light-green: #a3e4a5;
+  --dark-green: #1e7a24;
+
+  /* Giderler (Kırmızı) */
+  --primary-red: #ff4136;
+  --light-red: #ffa69e;
+  --dark-red: #991f15;
+
+  /* Tamamlayıcı Renkler */
+  --white: #ffffff;
+  --gray: #aaaaaa;
+  --orange: #ff851b;
+}
