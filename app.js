@@ -10,20 +10,17 @@ const descriptionExpense = document.getElementById("expenseDescription");
 
 const movContainer = document.querySelector(".movements-container");
 const movRow = document.querySelector(".movements-row");
-const movDate = document.querySelector(".movements-date");
-const movType = document.querySelector(".movements-type");
-const movDescription = document.querySelector(".movements-description");
-const movAmount = document.querySelector(".movements-amount");
 
 //*!
 const sumIn = document.querySelector(".total-in-value");
 const sumOut = document.querySelector(".total-out-value");
 const sumTotal = document.querySelector(".total-value");
 
-//!
+//*!
 let incomes = JSON.parse(localStorage.getItem("incomes")) || [];
 let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
-//!
+
+//*!
 
 const displayMovements = () => {
   movContainer.innerHTML = "";
@@ -39,6 +36,7 @@ const displayMovements = () => {
           <div class="movements--type movements--income">Income</div>
           <div class="movements-description">${income.description}</div>
           <div class="movements-amount">${income.amount} €</div>
+          <div class="movements-trash"><i class="bi bi-trash-fill"></i> </div>
     `;
     movContainer.appendChild(movRow);
   });
@@ -53,7 +51,9 @@ const displayMovements = () => {
           ).toLocaleDateString()}</div>
           <div class="movements--type movements--outcome">Expense</div>
           <div class="movements-description">${expense.description}</div>
-          <div class="movements-amount">${expense.amount} €</div>
+          <div class="movements-amount"> ${-expense.amount} €</div>
+          <div class="movements-trash"><i class="bi bi-trash-fill"></i> </div>
+
     `;
     movContainer.appendChild(movRow);
   });
