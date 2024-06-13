@@ -33,7 +33,7 @@ body {
 /* ! NAVBAR  */
 
 .navbar {
-  background-color: var(--light-blue);
+  background-color: var(--primary-blue);
 }
 
 .logo {
@@ -52,4 +52,48 @@ body {
 .btn-login:active {
   background-color: var(--orange) !important;
   color: var(--white) !important;
+}
+
+/* ! MAIN */
+
+main {
+  background-color: var(--light-blue);
+  height: 100vh;
+}
+
+.movements-container {
+  background-color: var(--white);
+  color: var(--dark-blue);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.movements-row {
+  border: 1px solid var(--gray);
+  border-radius: 1rem;
+}
+
+.movements--type {
+  padding: 0.1rem 0.3rem;
+  border-radius: 5px;
+}
+.movements--income {
+  background-color: var(--primary-green);
+}
+.movements--outcome {
+  background-color: var(--primary-red);
+  padding: 0.1rem 0.3rem;
+  border-radius: 5px;
+}
+
+.income-container {
+  background-color: var(--primary-green);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.expense-container {
+  background-color: var(--primary-red);
+  padding: 1rem;
+  border-radius: 1rem;
 }
