@@ -48,7 +48,7 @@
             />
           </div>
           <div class="col-auto">
-            <button type="submit" class="btn btn-login -white px-4">
+            <button type="submit" class="btn btn-login px-4">
               Login
             </button>
           </div>
@@ -75,7 +75,7 @@
           <div class="col-12 col-md-5 d-flex flex-column gap-5">
             <!-- gelir tablosu  -->
             <div class="income-container">
-              <h5>Enter Your Income </h5>
+              <h5 class="header-income">Enter Your Income </h5>
               <div class="d-flex gap-2">
               <div>
        
@@ -99,7 +99,7 @@
       
                 />
               </div>
-              <button type="submit" class="btn btn-income -white px-4">
+              <button type="submit" class="btn btn-income  px-4">
                 Confirm
               </button>
             </div>
@@ -108,7 +108,7 @@
             <!-- gider tablosu  -->
 
             <div class="expense-container">
-              <h5>Enter Your Expense </h5>
+              <h5 class="header-expense">Enter Your Expense </h5>
               <div class="d-flex gap-2">
               <div>
                 <input
@@ -130,13 +130,27 @@
       
                 />
               </div>
-              <button type="submit" class="btn btn-expense -white px-4">
+              <button type="submit" class="btn btn-expense px-4">
                 Confirm
               </button>
             </div>
             </div>
             <div class="summary-container">
-              <h5> Account Summary </h5>
+              <h5 class="header-summary mb-3"> Account Summary </h5>
+              <div >
+                <div class="d-flex justify-content-between">
+                  <p class="total-in fs-4 ms-2">In &rarr;</p> 
+                  <p class="total-in-value me-5 fs-4">5</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <p class="total-out fs-4 ms-2">Out &rarr;</p> 
+                  <p class="total-out-value me-5 fs-4">5</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <p class="total fs-4 ms-2">Total &rarr;</p> 
+                  <p class="total-value me-5 fs-4">5</p>
+                </div>
+              </div>
 
 
             </div>

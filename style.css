@@ -18,7 +18,7 @@
 
   /* Tamamlayıcı Renkler */
   --white: #ffffff;
-  --gray: #aaaaaa;
+  --gray: #333;
   --orange: #ff851b;
 }
 
@@ -38,7 +38,7 @@ body {
 /* ! NAVBAR  */
 
 .navbar {
-  background-color: var(--light-blue);
+  background-color: var(--primary-blue);
 }
 
 .logo {
@@ -48,21 +48,42 @@ body {
   object-fit: cover;
 }
 
-.btn {
+.btn-login {
   background-color: var(--orange);
   color: var(--white);
 }
 
-.btn:hover,
-.btn:active {
+.btn-login:hover,
+.btn-login:active {
   background-color: var(--orange) !important;
+  color: var(--white) !important;
+}
+
+.btn-income {
+  background-color: var(--primary-green) !important;
+  color: var(--white) !important;
+}
+
+.btn-income:hover,
+.btn-income:active {
+  background-color: var(--primary-green);
+  color: var(--white);
+}
+.btn-expense {
+  background-color: var(--primary-red);
+  color: var(--white);
+}
+
+.btn-expense:hover,
+.btn-expense:active {
+  background-color: var(--primary-red) !important;
   color: var(--white) !important;
 }
 
 /* ! MAIN */
 
 main {
-  background-color: var(--primary-blue);
+  background-color: var(--light-blue);
   height: 100vh;
 }
 
@@ -71,6 +92,18 @@ main {
   color: var(--dark-blue);
   border-radius: 1rem;
   padding: 1rem;
+}
+
+.header-income {
+  color: var(--dark-green);
+}
+
+.header-expense {
+  color: var(--dark-red);
+}
+
+.header-summary {
+  color: var(--gray);
 }
 
 .movements-row {
@@ -93,19 +126,20 @@ main {
 }
 
 .income-container {
-  background-color: var(--primary-green);
+  background-color: var(--white);
   padding: 1rem;
   border-radius: 1rem;
 }
 
 .expense-container {
-  background-color: var(--primary-red);
+  background-color: var(--white);
   padding: 1rem;
   border-radius: 1rem;
 }
 
 .summary-container {
   background-color: var(--orange);
+  color: var(--gray);
   padding: 1rem;
   border-radius: 1rem;
 }
