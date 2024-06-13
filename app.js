@@ -28,6 +28,7 @@ const displayMovements = () => {
   incomes.forEach((income) => {
     const movRow = document.createElement("div");
     movRow.className = "movements-row d-flex justify-content-around p-2";
+    movRow.setAttribute("data-id", income.id);
 
     movRow.innerHTML = `
           <div class="movements-date">${new Date(
@@ -36,7 +37,7 @@ const displayMovements = () => {
           <div class="movements--type movements--income">Income</div>
           <div class="movements-description">${income.description}</div>
           <div class="movements-amount">${income.amount} €</div>
-          <div class="movements-trash"><i class="bi bi-trash-fill"></i> </div>
+          <i class="bi bi-trash-fill movements-trash"></i> 
     `;
     movContainer.appendChild(movRow);
   });
@@ -44,6 +45,7 @@ const displayMovements = () => {
   expenses.forEach((expense) => {
     const movRow = document.createElement("div");
     movRow.className = "movements-row d-flex justify-content-around p-2";
+    movRow.setAttribute("data-id", expense.id);
 
     movRow.innerHTML = `
           <div class="movements-date">${new Date(
@@ -52,7 +54,7 @@ const displayMovements = () => {
           <div class="movements--type movements--outcome">Expense</div>
           <div class="movements-description">${expense.description}</div>
           <div class="movements-amount"> ${-expense.amount} €</div>
-          <div class="movements-trash"><i class="bi bi-trash-fill"></i> </div>
+          <i class="bi bi-trash-fill movements-trash"></i> 
 
     `;
     movContainer.appendChild(movRow);
@@ -121,9 +123,29 @@ const calculateTotal = () => {
   const totalBalance = totalIncome - totalExpense; // Since expenses are negative
 
   sumIn.textContent = `${totalIncome.toFixed(2)} €`;
-  sumOut.textContent = `- ${totalExpense.toFixed(2)} €`;
+  sumOut.textContent = ` ${totalExpense.toFixed(2)} €`;
   sumTotal.textContent = `${totalBalance.toFixed(2)} €`;
 };
 
 displayMovements();
 calculateTotal();
+
+movContainer.addEventListener("click", (e) => {
+  if (e.target.classList.contains("movements-trash")) {
+    const movRow = e.target.closest(".movements-row");
+
+    const id = Number(movRow.getAttribute("data-id"));
+
+    // Remove from incomes or expenses arrays
+    incomes = incomes.filter((income) => income.id !== id);
+    expenses = expenses.filter((expense) => expense.id !== id);
+
+    // Update localStorage
+    localStorage.setItem("incomes", JSON.stringify(incomes));
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+
+    // Update UI
+    displayMovements();
+    calculateTotal();
+  }
+});
