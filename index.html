@@ -59,15 +59,17 @@
     <main class="app p-5">
       <div class="container">
         <div class="row gap-5">
+          <!-- hareket tablosu -->
           <div class="movements-container col-12 col-md-5">
-            <div class="movements-row d-flex justify-content-around p-2">
+            <!-- hareket rowu  -->
+            <!-- <div class="movements-row d-flex justify-content-around p-2">
               <div class="movements-date">12.02.2024</div>
               <div class="movements-type movements--income movements--outcome">
                 Withdrawal
               </div>
-              <div class="movements-explanation">Phone Bill</div>
-              <div class="movements-amount">25</div>
-            </div>
+              <div class="movements-description">Phone Bill</div>
+              <div class="movements-amount">25 €</div>
+            </div> -->
           </div>
           <!-- gelir gider tablolari  -->
           <div class="col-12 col-md-5 d-flex flex-column gap-5">
@@ -80,7 +82,7 @@
                 </label>
                 <input
                   type="text"
-                  id="inputDescription"
+                  id="incomeDescription"
                   class="form-control"
                   aria-describedby="inputDescription"
                   placeholder="description"
@@ -90,15 +92,15 @@
               <div>
                 <input
                   type="number"
-                  id="inputAmount"
+                  id="incomeAmount"
                   class="form-control"
                   aria-describedby="inputAmount"
                   placeholder="amount"
       
                 />
               </div>
-              <button type="submit" class="btn btn-login -white px-4">
-                Login
+              <button type="submit" class="btn btn-income -white px-4">
+                Confirm
               </button>
             </div>
 
@@ -111,7 +113,7 @@
               <div>
                 <input
                   type="text"
-                  id="inputDescription"
+                  id="expenseDescription"
                   class="form-control"
                   aria-describedby="inputDescription"
                   placeholder="description"
@@ -121,17 +123,22 @@
               <div>
                 <input
                   type="number"
-                  id="inputAmount"
+                  id="expenseAmount"
                   class="form-control"
                   aria-describedby="inputAmount"
                   placeholder="amount"
       
                 />
               </div>
-              <button type="submit" class="btn btn-login -white px-4">
-                Login
+              <button type="submit" class="btn btn-expense -white px-4">
+                Confirm
               </button>
             </div>
+            </div>
+            <div class="summary-container">
+              <h5> Account Summary </h5>
+
+
             </div>
           </div>
         </div>

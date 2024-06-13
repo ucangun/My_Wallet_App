@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 :root {
   /* Lacivert Arka Plan */
   --primary-blue: #001f3f;
@@ -27,13 +29,16 @@
 }
 
 body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   color: #fff;
 }
 
 /* ! NAVBAR  */
 
 .navbar {
-  background-color: var(--primary-blue);
+  background-color: var(--light-blue);
 }
 
 .logo {
@@ -43,13 +48,13 @@ body {
   object-fit: cover;
 }
 
-.btn-login {
+.btn {
   background-color: var(--orange);
   color: var(--white);
 }
 
-.btn-login:hover,
-.btn-login:active {
+.btn:hover,
+.btn:active {
   background-color: var(--orange) !important;
   color: var(--white) !important;
 }
@@ -57,7 +62,7 @@ body {
 /* ! MAIN */
 
 main {
-  background-color: var(--light-blue);
+  background-color: var(--primary-blue);
   height: 100vh;
 }
 
@@ -71,19 +76,20 @@ main {
 .movements-row {
   border: 1px solid var(--gray);
   border-radius: 1rem;
+  margin-bottom: 1rem;
 }
 
 .movements--type {
   padding: 0.1rem 0.3rem;
   border-radius: 5px;
+  text-align: center;
+  padding: 0 1.2rem;
 }
 .movements--income {
   background-color: var(--primary-green);
 }
 .movements--outcome {
   background-color: var(--primary-red);
-  padding: 0.1rem 0.3rem;
-  border-radius: 5px;
 }
 
 .income-container {
@@ -94,6 +100,12 @@ main {
 
 .expense-container {
   background-color: var(--primary-red);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.summary-container {
+  background-color: var(--orange);
   padding: 1rem;
   border-radius: 1rem;
 }
