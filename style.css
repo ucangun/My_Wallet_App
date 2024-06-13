@@ -60,6 +60,12 @@ body {
   color: var(--white) !important;
 }
 
+.welcome-text {
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  margin-right: 3rem;
+}
+
 .btn-income {
   background-color: var(--primary-green) !important;
   color: var(--white) !important;

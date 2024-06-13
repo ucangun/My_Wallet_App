@@ -17,6 +17,10 @@ const sumOut = document.querySelector(".total-out-value");
 const sumTotal = document.querySelector(".total-value");
 
 //*!
+
+const app = document.querySelector(".app");
+
+//*!
 let incomes = JSON.parse(localStorage.getItem("incomes")) || [];
 let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 
@@ -147,5 +151,25 @@ movContainer.addEventListener("click", (e) => {
     // Update UI
     displayMovements();
     calculateTotal();
+  }
+});
+
+//*! Login Function
+
+const username = document.getElementById("inputUserName");
+const password = document.getElementById("inputPassword");
+const btnLogin = document.querySelector(".btn-login");
+const loginBox = document.querySelector(".login-box");
+const welcome = document.querySelector(".welcome");
+
+btnLogin.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (username !== "" && password !== "") {
+    app.classList.remove("d-none");
+    loginBox.classList.add("d-none");
+    const welcomeText = document.createElement("p");
+    welcome.appendChild(welcomeText);
+    welcomeText.className = "welcome-text";
+    welcomeText.textContent = `Welcome ${username.value}`;
   }
 });
