@@ -86,7 +86,7 @@ const addExpense = () => {
   ) {
     const newExpense = {
       description: descriptionExpense.value,
-      amount: amountExpense.value,
+      amount: -Math.abs(amountExpense.value),
       id: new Date().getTime(),
     };
     expenses.push(newExpense);
@@ -110,15 +110,19 @@ btnExpense.addEventListener("click", (e) => {
 });
 
 const calculateTotal = () => {
-  sumIn.textContent = incomes.reduce(
+  const totalIncome = incomes.reduce(
     (sum, { amount }) => sum + Number(amount),
     0
   );
-  sumOut.textContent = expenses.reduce(
+  const totalExpense = expenses.reduce(
     (sum, { amount }) => sum + Number(amount),
     0
   );
-  sumTotal.textContent = sumIn.textContent + sumOut.textContent;
+  const totalBalance = totalIncome - totalExpense; // Since expenses are negative
+
+  sumIn.textContent = `${totalIncome.toFixed(2)} €`;
+  sumOut.textContent = `- ${totalExpense.toFixed(2)} €`;
+  sumTotal.textContent = `${totalBalance.toFixed(2)} €`;
 };
 
 displayMovements();
