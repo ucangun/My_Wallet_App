@@ -19,3 +19,37 @@
   --gray: #aaaaaa;
   --orange: #ff851b;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #fff;
+}
+
+/* ! NAVBAR  */
+
+.navbar {
+  background-color: var(--light-blue);
+}
+
+.logo {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.btn-login {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+.btn-login:hover,
+.btn-login:active {
+  background-color: var(--orange) !important;
+  color: var(--white) !important;
+}
