@@ -31,14 +31,13 @@ const displayMovements = () => {
 
   incomes.forEach((income) => {
     const movRow = document.createElement("div");
-    movRow.className = "movements-row d-flex justify-content-around p-2";
+    movRow.className = "movements-row d-flex justify-content-between p-2";
     movRow.setAttribute("data-id", income.id);
 
     movRow.innerHTML = `
-          <div class="movements-date">${new Date(
+          <div class="movements-date movements--income">${new Date(
             income.id
           ).toLocaleDateString()}</div>
-          <div class="movements--type movements--income">Income</div>
           <div class="movements-description">${income.description}</div>
           <div class="movements-amount">${income.amount} €</div>
           <i class="bi bi-trash-fill movements-trash"></i> 
@@ -48,14 +47,13 @@ const displayMovements = () => {
 
   expenses.forEach((expense) => {
     const movRow = document.createElement("div");
-    movRow.className = "movements-row d-flex justify-content-around p-2";
+    movRow.className = "movements-row d-flex justify-content-between p-2";
     movRow.setAttribute("data-id", expense.id);
 
     movRow.innerHTML = `
-          <div class="movements-date">${new Date(
+          <div class="movements-date movements--outcome">${new Date(
             expense.id
           ).toLocaleDateString()}</div>
-          <div class="movements--type movements--outcome">Expense</div>
           <div class="movements-description">${expense.description}</div>
           <div class="movements-amount"> ${-expense.amount} €</div>
           <i class="bi bi-trash-fill movements-trash"></i> 
@@ -164,7 +162,7 @@ const welcome = document.querySelector(".welcome");
 
 btnLogin.addEventListener("click", (e) => {
   e.preventDefault();
-  if (username !== "" && password !== "") {
+  if (username.value !== "" && password.value !== "") {
     app.classList.remove("d-none");
     loginBox.classList.add("d-none");
     const welcomeText = document.createElement("p");

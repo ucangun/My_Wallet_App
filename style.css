@@ -63,7 +63,6 @@ body {
 .welcome-text {
   font-size: 1.5rem;
   letter-spacing: 0.1rem;
-  margin-right: 3rem;
 }
 
 .btn-income {
@@ -90,7 +89,7 @@ body {
 /* ! MAIN */
 
 main {
-  background-color: var(--light-blue);
+  background-color: var(--primary-blue);
   height: 100vh;
 }
 
@@ -103,14 +102,17 @@ main {
 
 .header-income {
   color: var(--dark-green);
+  letter-spacing: 1px;
 }
 
 .header-expense {
   color: var(--dark-red);
+  letter-spacing: 1px;
 }
 
 .header-summary {
   color: var(--gray);
+  letter-spacing: 1px;
 }
 
 .movements-row {
@@ -119,17 +121,18 @@ main {
   margin-bottom: 1rem;
 }
 
-.movements--type {
-  padding: 0.1rem 0.3rem;
-  border-radius: 5px;
-  text-align: center;
-  padding: 0 1.2rem;
-}
 .movements--income {
   background-color: var(--primary-green);
+  text-align: center;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.5rem;
 }
 .movements--outcome {
   background-color: var(--primary-red);
+  text-align: center;
+
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.5rem;
 }
 
 .movements-trash {
@@ -151,8 +154,17 @@ main {
 }
 
 .summary-container {
-  background-color: var(--orange);
+  background-color: var(--white);
   color: var(--gray);
   padding: 1rem;
   border-radius: 1rem;
+}
+
+.totalbg {
+  background-color: var(--orange);
+  font-size: 1.1rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  width: 7rem;
 }
