@@ -28,37 +28,57 @@ let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 
 const displayMovements = () => {
   movContainer.innerHTML = "";
-
-  incomes.forEach((income) => {
+  const createIncomeRow = (id, date, description, amount) => {
     const movRow = document.createElement("div");
     movRow.className = "movements-row d-flex justify-content-between p-2";
-    movRow.setAttribute("data-id", income.id);
+    const movDate = document.createElement("div");
+    movDate.className = "movements--income";
+    movDate.textContent = date;
+    const movDescription = document.createElement("div");
+    movDescription.textContent = description;
+    const movAmount = document.createElement("div");
+    movAmount.textContent = amount;
+    const movTrash = document.createElement("i");
+    movTrash.className = "bi bi-trash-fill movements-trash";
+    movTrash.id = id;
 
-    movRow.innerHTML = `
-          <div class="movements-date movements--income">${new Date(
-            income.id
-          ).toLocaleDateString()}</div>
-          <div class="movements-description">${income.description}</div>
-          <div class="movements-amount">${income.amount} €</div>
-          <i class="bi bi-trash-fill movements-trash"></i> 
-    `;
+    movRow.appendChild(movDate);
+    movRow.appendChild(movDescription);
+    movRow.appendChild(movAmount);
+    movRow.appendChild(movTrash);
+
+    return movRow;
+  };
+
+  incomes.forEach(({ id, date, description, amount }) => {
+    const movRow = createIncomeRow(id, date, description, amount);
     movContainer.appendChild(movRow);
   });
 
-  expenses.forEach((expense) => {
+  const createExpenseRow = (id, date, description, amount) => {
     const movRow = document.createElement("div");
     movRow.className = "movements-row d-flex justify-content-between p-2";
-    movRow.setAttribute("data-id", expense.id);
+    const movDate = document.createElement("div");
+    movDate.className = "movements--outcome";
+    movDate.textContent = date;
+    const movDescription = document.createElement("div");
+    movDescription.textContent = description;
+    const movAmount = document.createElement("div");
+    movAmount.textContent = amount;
+    const movTrash = document.createElement("i");
+    movTrash.className = "bi bi-trash-fill movements-trash";
+    movTrash.id = id;
 
-    movRow.innerHTML = `
-          <div class="movements-date movements--outcome">${new Date(
-            expense.id
-          ).toLocaleDateString()}</div>
-          <div class="movements-description">${expense.description}</div>
-          <div class="movements-amount"> ${-expense.amount} €</div>
-          <i class="bi bi-trash-fill movements-trash"></i> 
+    movRow.appendChild(movDate);
+    movRow.appendChild(movDescription);
+    movRow.appendChild(movAmount);
+    movRow.appendChild(movTrash);
 
-    `;
+    return movRow;
+  };
+
+  expenses.forEach(({ id, date, description, amount }) => {
+    const movRow = createExpenseRow(id, date, description, amount);
     movContainer.appendChild(movRow);
   });
 };
@@ -69,11 +89,14 @@ const addIncome = () => {
     amountIncome.value > 0 &&
     descriptionIncome.value !== ""
   ) {
+    const id = new Date().getTime();
     const newIncome = {
+      id: id,
+      date: new Date(id).toLocaleDateString(),
       description: descriptionIncome.value,
       amount: amountIncome.value,
-      id: new Date().getTime(),
     };
+
     incomes.push(newIncome);
     localStorage.setItem("incomes", JSON.stringify(incomes));
     displayMovements();
@@ -88,10 +111,12 @@ const addExpense = () => {
     amountExpense.value > 0 &&
     descriptionExpense.value !== ""
   ) {
+    const id = new Date().getTime();
     const newExpense = {
+      id: id,
+      date: new Date(id).toLocaleDateString(),
       description: descriptionExpense.value,
-      amount: -Math.abs(amountExpense.value),
-      id: new Date().getTime(),
+      amount: amountExpense.value,
     };
     expenses.push(newExpense);
     localStorage.setItem("expenses", JSON.stringify(expenses));
@@ -136,7 +161,7 @@ movContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("movements-trash")) {
     const movRow = e.target.closest(".movements-row");
 
-    const id = Number(movRow.getAttribute("data-id"));
+    const id = Number(e.target.id);
 
     // Remove from incomes or expenses arrays
     incomes = incomes.filter((income) => income.id !== id);
