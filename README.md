@@ -26,7 +26,8 @@ The primary objective of this project is to enhance and demonstrate my skills in
 
 ## Outcome
 
-![Wallet App](https://github.com/ucangun/My_Wallet_App/assets/149247682/aa52cf71-a202-4311-beb9-d19bd2042ad4)
+
+![My Wallet App](https://github.com/ucangun/My_Wallet_App/assets/149247682/9d4e8845-a60a-4ea4-9cae-71e7c9e7095f)
 
 
 
