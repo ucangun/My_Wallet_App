@@ -27,17 +27,23 @@ let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 //*!
 
 const displayMovements = () => {
-  movContainer.innerHTML = "";
-  const createIncomeRow = (id, date, description, amount) => {
+  movContainer.innerHTML = ""; // Movements container'ı temizleyin
+
+  const createRow = (id, date, description, amount, type) => {
     const movRow = document.createElement("div");
     movRow.className = "movements-row d-flex justify-content-between p-2";
+
     const movDate = document.createElement("div");
-    movDate.className = "movements--income";
+    movDate.className =
+      type === "income" ? "movements--income" : "movements--outcome";
     movDate.textContent = date;
+
     const movDescription = document.createElement("div");
     movDescription.textContent = description;
+
     const movAmount = document.createElement("div");
-    movAmount.textContent = amount;
+    movAmount.textContent = `${amount} €`;
+
     const movTrash = document.createElement("i");
     movTrash.className = "bi bi-trash-fill movements-trash";
     movTrash.id = id;
@@ -51,34 +57,12 @@ const displayMovements = () => {
   };
 
   incomes.forEach(({ id, date, description, amount }) => {
-    const movRow = createIncomeRow(id, date, description, amount);
+    const movRow = createRow(id, date, description, amount, "income");
     movContainer.appendChild(movRow);
   });
 
-  const createExpenseRow = (id, date, description, amount) => {
-    const movRow = document.createElement("div");
-    movRow.className = "movements-row d-flex justify-content-between p-2";
-    const movDate = document.createElement("div");
-    movDate.className = "movements--outcome";
-    movDate.textContent = date;
-    const movDescription = document.createElement("div");
-    movDescription.textContent = description;
-    const movAmount = document.createElement("div");
-    movAmount.textContent = amount;
-    const movTrash = document.createElement("i");
-    movTrash.className = "bi bi-trash-fill movements-trash";
-    movTrash.id = id;
-
-    movRow.appendChild(movDate);
-    movRow.appendChild(movDescription);
-    movRow.appendChild(movAmount);
-    movRow.appendChild(movTrash);
-
-    return movRow;
-  };
-
   expenses.forEach(({ id, date, description, amount }) => {
-    const movRow = createExpenseRow(id, date, description, amount);
+    const movRow = createRow(id, date, description, amount, "expense");
     movContainer.appendChild(movRow);
   });
 };
