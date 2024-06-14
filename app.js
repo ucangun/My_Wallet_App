@@ -116,7 +116,7 @@ const addExpense = () => {
       id: id,
       date: new Date(id).toLocaleDateString(),
       description: descriptionExpense.value,
-      amount: amountExpense.value,
+      amount: Math.abs(amountExpense.value),
     };
     expenses.push(newExpense);
     localStorage.setItem("expenses", JSON.stringify(expenses));
@@ -144,10 +144,10 @@ const calculateTotal = () => {
     0
   );
   const totalExpense = expenses.reduce(
-    (sum, { amount }) => sum + Number(amount),
+    (sum, { amount }) => sum + -1 * Number(amount),
     0
   );
-  const totalBalance = totalIncome - totalExpense; // Since expenses are negative
+  const totalBalance = totalIncome + totalExpense; // Since expenses are negative
 
   sumIn.textContent = `${totalIncome.toFixed(2)} €`;
   sumOut.textContent = ` ${totalExpense.toFixed(2)} €`;
