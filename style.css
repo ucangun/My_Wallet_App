@@ -90,7 +90,7 @@ body {
 
 main {
   background-color: var(--primary-blue);
-  height: 100vh;
+  height: 200vh;
 }
 
 .movements-container {
